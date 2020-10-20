@@ -13,10 +13,8 @@ class Donor(models.Model):
         ('Others', 'others')
     )
     gender = models.CharField(max_length=10, choices=gender_choices)
-    date_of_donation = models.DateField(blank=True, null=True)
     age = models.PositiveIntegerField (blank=False)
     blood_type = models.CharField(max_length=10, null=True)
-    units_donated = models.PositiveSmallIntegerField(blank=False)
 
     class Meta:
          verbose_name = "Donor"

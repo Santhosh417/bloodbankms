@@ -4,7 +4,7 @@ from users.models import Staff, Donor, Recipient
 class BloodInventory(models.Model):
     blood_bag_num = models.AutoField(primary_key=True)
     blood_type = models.CharField(max_length=5)
-    blood_units = models.IntegerField(null=False)
+    date_of_donation = models.DateField(blank=True, null=True)
     donor = models.ForeignKey(Donor, on_delete=models.DO_NOTHING, related_name='blood_donor')
     recipient = models.ForeignKey(Recipient, on_delete=models.DO_NOTHING, related_name='blood_recipient', blank=True)
     staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING, related_name='blood_staff')
