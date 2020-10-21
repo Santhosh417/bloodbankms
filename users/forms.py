@@ -1,25 +1,12 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import Staff
 
-from .models import Donor, User
-
-
-class DonorSignUpForm(UserCreationForm):
+class StaffCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
-        model = User
-        fields = ('first_name', 'last_name', 'blood_type', 'phone_num', 'username', 'password1', 'password2')
+        model = Staff
+        fields = ('username', 'first_name', 'last_name', 'email', 'phone_num')
 
-    def save(self):
-        user = super().save(commit=False)
-        user.is_customer = True
-        user.save()
-        Donor.objects.create(user=user)
-        return user
-
-
-class DonorForm(forms.ModelForm):
+class StaffChangeForm(UserChangeForm):
     class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'blood_type', 'phone_num')
-
-
+        model = Staff
+        fields = ('username', 'first_name', 'last_name', 'email', 'phone_num')

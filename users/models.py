@@ -20,11 +20,10 @@ class Donor(models.Model):
          verbose_name = "Donor"
 
     def __str__(self):
-        return self.first_name
+        return self.name
 
 class Staff(AbstractUser):
     address = models.CharField(max_length=100, null=False, default= '')
-    name = models.CharField(max_length=30, null=False, default= '')
     phone_num = models.CharField (max_length=15, null=True)
     gender_choices = (
         ('Male','Male'),
@@ -33,7 +32,6 @@ class Staff(AbstractUser):
     )
     gender = models.CharField(max_length=10, choices=gender_choices)
     salary = models.DecimalField (decimal_places=2, max_digits=7, null=True)
-    description = models.CharField (max_length=100, null=True)
     class Meta:
          verbose_name = "Staff"
          verbose_name_plural = "Staff"
