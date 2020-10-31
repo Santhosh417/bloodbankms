@@ -42,7 +42,7 @@ class Staff(AbstractUser):
 class Recipient(models.Model):
     recipient_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, null=False)
-    mobile_num = models.CharField(max_length=15, null=False)
+    phone_num = models.CharField(max_length=15, null=False)
     address = models.CharField(max_length=100, null=False, default= '')
     blood_type = models.CharField(max_length=10, null=True)
     units_requested = models.CharField(max_length=4)
