@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 class Donor(models.Model):
     donor_id = models.AutoField(primary_key=True)
@@ -21,6 +22,9 @@ class Donor(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('users:donor_detail', args=[str(self.donor_id)])
 
 class Staff(AbstractUser):
     address = models.CharField(max_length=100, null=False, default= '')
@@ -54,3 +58,6 @@ class Recipient(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('users:recipient_detail', args=[str(self.recipient_id)])

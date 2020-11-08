@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Recipients{% endblock title %}
+
+{% block content %}
+  {% for recipient in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">Name: {{ recipient.name }} | </span>
+        <span class="font-weight-bold">Phone Num: {{ recipient.phone_num }} </span>
+      </div>
+      <div class="card-body">
+        <p>Address : {{recipient.address}}</p>
+        <p>Blood Type: {{ recipient.blood_type }}</p>
+        <a href="{% url 'users:recipient_edit' recipient.pk %}">Edit</a> |
+        <a href="{% url 'users:recipient_delete' recipient.pk %}">Delete</a>
+      </div>
+      <div class="card-footer"/>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Blood Bank Management System</h1>
+    <p class="lead">Donor, Recipient and Inventory Management System.</p>
+    {% if user.is_authenticated %}
+    <p class="lead">
+        <a href="{% url 'users:donor_list' %}">Donor List</a> |
+        <a href="{% url 'users:recipient_list' %}">Recipient List</a>
+    </p>
+    {% endif %}
+</div>
+{% endblock content %}

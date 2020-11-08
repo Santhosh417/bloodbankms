@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import Staff, Donor, Recipient
+from django.urls import reverse
 
 class BloodInventory(models.Model):
     blood_bag_num = models.AutoField(primary_key=True)
@@ -14,3 +15,6 @@ class BloodInventory(models.Model):
 
     def __str__(self):
         return self.blood_type
+
+    def get_absolute_url(self):
+        return reverse('inventory:inventory_detail', args=[str(self.blood_bag_num)])

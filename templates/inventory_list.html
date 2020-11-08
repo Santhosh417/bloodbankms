@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Inventory{% endblock title %}
+
+{% block content %}
+  {% for inventory in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">Blood Type: {{ inventory.blood_type }} | </span>
+        <span class="font-weight-bold">Date of Donation: {{ inventory.date_of_donation }} </span>
+      </div>
+      <div class="card-body">
+        <p>Donor : {{inventory.donor}}</p>
+        <p>Recipient: {{ inventory.recipient }}</p>
+        <a href="{% url 'inventory:inventory_edit' inventory.pk %}">Edit</a> |
+        <a href="{% url 'inventory:inventory_delete' inventory.pk %}">Delete</a>
+      </div>
+      <div class="card-footer"/>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

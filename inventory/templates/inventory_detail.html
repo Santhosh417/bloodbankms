@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="inventory-entry">
+    <h2>{{ object.blood_type }}</h2>
+    <p>by {{ object.date_of_donation }}</p>
+    <p>{{ object.donor }}</p>
+    <p>{{ object.recipient }}</p>
+</div>
+
+<p><a href="{% url 'inventory:inventory_edit' object.pk %}">Edit</a> | <a
+        href="{% url 'inventory:inventory_delete' object.pk %}">Delete</a></p>
+<p>Back to <a href="{% url 'inventory:inventory_list' %}">View Inventory</a>.</p>
+{% endblock content %}

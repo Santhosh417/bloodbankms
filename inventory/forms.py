@@ -6,7 +6,6 @@ class BloodInventoryCreationForm(forms.ModelForm):
         model = BloodInventory
         fields = ('blood_type', 'date_of_donation', 'donor', 'staff')
 
-
 class BloodInventoryChangeForm(forms.ModelForm):
     class Meta:
         model = BloodInventory

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Donors{% endblock title %}
+
+{% block content %}
+  {% for donor in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ donor.name }} | </span>
+        <span class="font-muted">age: {{ donor.age }} | </span>
+        <span class="font-muted">blood_type: {{ donor.blood_type }} | </span>
+      </div>
+      <div class="card-body">
+        <span class="font-weight-bold">address: {{ donor.address }} | </span>
+        <span class="font-weight-bold">phone_num: {{ donor.phone_num }} | </span>
+
+        <span class="font-muted">email: {{ donor.email }} | </span>
+        <span class="font-muted-">gender: {{ donor.gender }} | </span>
+
+        <a href="{% url 'users:donor_edit' donor.pk %}">Edit</a> |
+        <a href="{% url 'users:donor_delete' donor.pk %}">Delete</a>
+      </div>
+      <div class="card-footer">
+       Test Footer UPDATE ME
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

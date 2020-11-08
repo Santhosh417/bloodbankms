@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="recipient-entry">
+  <h2>{{ object.name }}</h2>
+    <p>by {{ object.address }} | {{ object.phone_num }}</p>
+    <p>{{ object.units_requested }}</p>
+    <p>{{ object.date_of_request }}</p>
+    <p>{{ object.date_of_accepted }}</p>
+    <p>{{ object.blood_type }}</p>
+  </div>
+
+  <p><a href="{% url 'users:recipient_edit' recipient.pk %}">Edit</a> | <a href="{% url 'users:recipient_delete' recipient.pk %}">Delete</a></p>
+  <p>Back to <a href="{% url 'users:recipient_list' %}">All Recipients</a>.</p>
+{% endblock content %}

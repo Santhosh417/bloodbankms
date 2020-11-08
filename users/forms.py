@@ -25,9 +25,9 @@ class DonorChangeForm(forms.ModelForm):
 class RecipientCreationForm(forms.ModelForm):
     class Meta:
         model = Recipient
-        fields = ('name', 'phone_num', 'address', 'blood_type', 'units_requested', 'date_of_request')
+        fields = ('name', 'phone_num', 'address', 'blood_type', 'units_requested', 'date_of_request', 'date_of_accepted')
 
 class RecipientChangeForm(forms.ModelForm):
     class Meta:
         model = Recipient
-        fields = ('name', 'phone_num', 'address', 'blood_type', 'units_requested', 'date_of_request')
+        fields = ('name', 'phone_num', 'address', 'blood_type', 'units_requested', 'date_of_request', 'date_of_accepted')
