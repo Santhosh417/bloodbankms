@@ -9,6 +9,7 @@ class BloodInventory(models.Model):
     donor = models.ForeignKey(Donor, on_delete=models.DO_NOTHING, related_name='blood_donor', blank=False)
     recipient = models.ForeignKey(Recipient, on_delete=models.DO_NOTHING, related_name='blood_recipient', blank=True, null=True )
     staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING, related_name='blood_staff')
+
     class Meta:
         verbose_name = 'Inventory'
         verbose_name_plural = 'Inventory'
