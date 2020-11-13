@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import DeleteView, UpdateView
 from .models import Donor, Recipient
 from django.urls import reverse_lazy
+from .forms import RecipientCreationForm, RecipientChangeForm
 
 class DonorListView(LoginRequiredMixin,ListView):
     model = Donor
@@ -44,7 +45,7 @@ class RecipientDetailView(LoginRequiredMixin,DetailView):
 
 class RecipientUpdateView(LoginRequiredMixin,UpdateView):
     model = Recipient
-    fields = ('name', 'address', 'phone_num', 'blood_type', 'units_requested', 'date_of_request', 'date_of_accepted')
+    form_class = RecipientChangeForm
     template_name = 'recipient_edit.html'
 
 class RecipientDeleteView(LoginRequiredMixin,DeleteView):
@@ -54,8 +55,8 @@ class RecipientDeleteView(LoginRequiredMixin,DeleteView):
 
 class RecipientCreateView(LoginRequiredMixin,CreateView):
     model = Recipient
+    form_class  = RecipientCreationForm
     template_name = 'recipient_new.html'
-    fields = ('name', 'address', 'phone_num', 'blood_type', 'units_requested', 'date_of_request', 'date_of_accepted')
     login_url = 'login'
 
     def form_valid(self, form):

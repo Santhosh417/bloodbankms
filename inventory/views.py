@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import DeleteView, UpdateView
 from .models import BloodInventory
 from django.urls import reverse_lazy
+from .forms import DateInput
 
 class InventoryListView(LoginRequiredMixin,ListView):
     model = BloodInventory
@@ -26,7 +27,10 @@ class InventoryDeleteView(LoginRequiredMixin,DeleteView):
 class InventoryCreateView(LoginRequiredMixin,CreateView):
     model = BloodInventory
     template_name = 'inventory_new.html'
-    fields = ('blood_type', 'date_of_donation', 'donor', 'recipient', 'staff')
+    fields = ['blood_type', 'date_of_donation', 'donor', 'recipient', 'staff']
+    widgets = {
+        'date_of_donation':DateInput(),
+    }
     login_url = 'login'
 
     def form_valid(self, form):
