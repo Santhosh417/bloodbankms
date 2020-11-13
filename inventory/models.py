@@ -14,7 +14,7 @@ class BloodInventory(models.Model):
         verbose_name_plural = 'Inventory'
 
     def __str__(self):
-        return self.blood_bag_num
+        return self.blood_type
 
     def get_absolute_url(self):
         return reverse('inventory:inventory_detail', args=[str(self.blood_bag_num)])
