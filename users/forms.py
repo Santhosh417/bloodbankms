@@ -7,7 +7,7 @@ class DateInput(forms.DateInput):
 class StaffCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = Staff
-        fields = ('username', 'first_name', 'last_name', 'email', 'phone_num')
+        fields = ('username', 'first_name', 'last_name', 'email', 'phone_num', 'address', 'phone_num', 'gender')
 
 class StaffChangeForm(UserChangeForm):
     class Meta:

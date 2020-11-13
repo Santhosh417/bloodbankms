@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import DeleteView, UpdateView
 from .models import Donor, Recipient
 from django.urls import reverse_lazy
-from .forms import RecipientCreationForm, RecipientChangeForm
+from .forms import RecipientCreationForm, RecipientChangeForm, StaffCreationForm
 
 class DonorListView(LoginRequiredMixin,ListView):
     model = Donor
@@ -62,3 +62,8 @@ class RecipientCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class SignUpView(CreateView):
+    form_class = StaffCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'

@@ -2,7 +2,7 @@ from . import views
 from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from .views import DonorCreateView, DonorDetailView, DonorListView, DonorDeleteView, DonorUpdateView, RecipientCreateView, RecipientDetailView, RecipientListView, RecipientDeleteView, RecipientUpdateView
+from .views import DonorCreateView, DonorDetailView, DonorListView, DonorDeleteView, DonorUpdateView, RecipientCreateView, RecipientDetailView, RecipientListView, RecipientDeleteView, RecipientUpdateView, SignUpView
 
 app_name = 'users'
 
@@ -34,6 +34,8 @@ urlpatterns = [
     # path('password_change/done/',
     #      auth_views.PasswordChangeDoneView.as_view(),
     #      name='password_change_done'),
+
+    path('signup/', SignUpView.as_view(template_name='signup.html'), name='signup'),
 
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset_form'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),

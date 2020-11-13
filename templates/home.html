@@ -9,7 +9,8 @@
     {% if user.is_authenticated %}
     <p class="lead">
         <a href="{% url 'users:donor_list' %}">Donor List</a> |
-        <a href="{% url 'users:recipient_list' %}">Recipient List</a>
+        <a href="{% url 'users:recipient_list' %}">Recipient List  | </a>
+        <a href="{% url 'inventory:inventory_list' %}">Inventory List</a>
     </p>
     {% endif %}
 </div>
