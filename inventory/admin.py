@@ -6,6 +6,6 @@ class BloodInventoryAdmin(admin.ModelAdmin):
     add_form = BloodInventoryCreationForm
     form = BloodInventoryChangeForm
     model = BloodInventory
-    list_display = ['blood_type', 'date_of_donation', 'donor', 'staff']
+    list_display = ['blood_type', 'date_of_donation', 'donor', 'staff', 'recipient']
 
 admin.site.register(BloodInventory, BloodInventoryAdmin)

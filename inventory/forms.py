@@ -7,15 +7,15 @@ class DateInput(forms.DateInput):
 class BloodInventoryCreationForm(forms.ModelForm):
     class Meta:
         model = BloodInventory
-        fields = ['blood_type', 'date_of_donation', 'donor', 'staff']
+        fields = ['blood_type', 'date_of_donation', 'donor', 'staff', 'recipient']
         widgets = {
-            'date_of_donation':DateInput(),
+            'date_of_donation':DateInput()
         }
 
 class BloodInventoryChangeForm(forms.ModelForm):
     class Meta:
         model = BloodInventory
-        fields = ['blood_type', 'date_of_donation', 'donor', 'staff']
+        fields = ['blood_type', 'date_of_donation', 'donor', 'staff', 'recipient']
         widgets = {
-            'date_of_donation': DateInput(attrs={'type': 'date'}),
+            'date_of_donation': DateInput()
         }
