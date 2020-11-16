@@ -16,11 +16,13 @@
       <a class="navbar-brand" href="{% url 'home' %}">Blood Bank Management System</a>
       {% if user.is_authenticated %}
         <ul class="navbar-nav mr-auto">
-          <a href="{% url 'users:donor_new' %}">New Donor  |</a>
+          <a href="{% url 'users:donor_new' %}">New Donor</a>&emsp;&emsp;
           <tr/>
-          <a href="{% url 'users:recipient_new' %}"> New Recipient  |</a>
+          <a href="{% url 'users:recipient_new' %}"> New Recipient</a>&emsp;&emsp;
            <tr/>
-          <a href="{% url 'inventory:inventory_new' %}">Add Inventory</a>
+          <a href="{% url 'inventory:inventory_new' %}">Add Inventory</a>&emsp;&emsp;
+          <tr/>
+          <a href="{% url 'inventory:appointment_new' %}">New Appointment</a>
         </ul>
       {% endif %}
       <button class="navbar-toggler" type="button" data-toggle="collapse"

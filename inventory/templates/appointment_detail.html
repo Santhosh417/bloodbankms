@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Created/Updated Appointment Details:</h3>
+<br/>
+<div class="appointment-entry">
+    <p><strong>Donor Name:</strong> {{ object.donor }}</p>
+    <p><strong>Appointment Date: </strong>{{ object.appointment_date }}</p>
+    <p><strong>Start Time: </strong>{{ object.start_time }}</p>
+    <p><strong>End Time: </strong>{{ object.end_time }}</p>
+    <p><strong>Associated Staff:</strong> {{ object.staff }}</p>
+</div>
+<br/>
+
+<p><a href="{% url 'inventory:appointment_edit' object.pk %}">Edit</a> | <a
+        href="{% url 'inventory:appointment_delete' object.pk %}">Delete</a></p>
+<p>Back to <a href="{% url 'inventory:appointment_list' %}">View Appointments</a>.</p>
+{% endblock content %}

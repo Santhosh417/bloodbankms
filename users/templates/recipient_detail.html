@@ -11,6 +11,7 @@
     <p>{{ object.blood_type }}</p>
   </div>
 
-  <p><a href="{% url 'users:recipient_edit' recipient.pk %}">Edit</a> | <a href="{% url 'users:recipient_delete' recipient.pk %}">Delete</a></p>
+  <p><a href="{% url 'users:recipient_edit' recipient.pk %}">Edit</a> | <a href="{% url 'users:recipient_delete' recipient.pk %}">Delete</a> |     <input type="submit" value="Send Reminder" name="_send-notification">
+</p>
   <p>Back to <a href="{% url 'users:recipient_list' %}">All Recipients</a>.</p>
 {% endblock content %}
