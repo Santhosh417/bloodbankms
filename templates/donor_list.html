@@ -3,27 +3,32 @@
 {% block title %}Donors{% endblock title %}
 
 {% block content %}
-  {% for donor in object_list %}
-    <div class="card">
-      <div class="card-header">
-        <span class="font-weight-bold">{{ donor.name }} | </span>
-        <span class="font-muted">age: {{ donor.age }} | </span>
-        <span class="font-muted">blood_type: {{ donor.blood_type }} | </span>
-      </div>
-      <div class="card-body">
-        <span class="font-weight-bold">address: {{ donor.address }} | </span>
-        <span class="font-weight-bold">phone_num: {{ donor.phone_num }} | </span>
-
-        <span class="font-muted">email: {{ donor.email }} | </span>
-        <span class="font-muted-">gender: {{ donor.gender }} | </span>
-
+{% for donor in object_list %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ donor.name }} </span>
+    </div>
+    <div class="card-body">
+        <table>
+            <tr>
+                <td style="column-width:300px">
+                    <span class="font-muted">Age: {{ donor.age }}</span> <br/>
+                    <span class="font-muted">Blood Type: {{ donor.blood_type }} </span><br/>
+                    <span class="font-muted">Address: {{ donor.address }} </span><br/>
+                </td>
+                <td>
+                    <span class="font-muted">Phone Num: {{ donor.phone_num }} </span><br/>
+                    <span class="font-muted">Email: {{ donor.email }}</span><br/>
+                    <span class="font-muted-">Gender: {{ donor.gender }}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer">
         <a href="{% url 'users:donor_edit' donor.pk %}">Edit</a> |
         <a href="{% url 'users:donor_delete' donor.pk %}">Delete</a>
-      </div>
-      <div class="card-footer">
-       Test Footer UPDATE ME
-      </div>
     </div>
-    <br />
-  {% endfor %}
+</div>
+<br/>
+{% endfor %}
 {% endblock content %}
