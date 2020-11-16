@@ -1,16 +1,19 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="donor-entry">
-  <h2>{{ object.name }}</h2>
-    <p>by {{ object.address }} | {{ object.phone_num }}</p>
-    <p>{{ object.email }}</p>
-    <p>{{ object.gender }}</p>
-    <p>{{ object.age }}</p>
-    <p>{{ object.blood_type }}</p>
-  </div>
-
-  <p><a href="{% url 'users:donor_edit' donor.pk %}">Edit</a> | <a href="{% url 'users:donor_delete' donor.pk %}">Delete</a></p>
-  <p>Back to <a href="{% url 'users:donor_list' %}">All Donors</a>.</p>
+    <h3>Donor Details:</h3>
+    <br/>
+    <p><strong> Donor name: </strong>{{ object.name }}</p>
+    <p><strong> Address: </strong>{{ object.address }}</p>
+    <p><strong> Phone Num: </strong>{{ object.phone_num }}</p>
+    <p><strong> Email: </strong>{{ object.email }}</p>
+    <p><strong> Gender: </strong>{{ object.gender }}</p>
+    <p><strong> Age: </strong>{{ object.age }}</p>
+    <p><strong> Blood Type: </strong>{{ object.blood_type }}</p>
+    <br/>
+</div>
+<p><a href="{% url 'users:donor_edit' donor.pk %}">Edit</a> | <a
+        href="{% url 'users:donor_delete' donor.pk %}">Delete</a></p>
+<p>Back to <a href="{% url 'users:donor_list' %}">All Donors</a>.</p>
 {% endblock content %}

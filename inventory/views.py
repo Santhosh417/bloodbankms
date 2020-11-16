@@ -34,10 +34,9 @@ class InventoryCreateView(LoginRequiredMixin,CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
 class AppointmentListView(LoginRequiredMixin,ListView):
     model = Appointment
-    template_name = 'home.html'
+    template_name = 'appointment_list.html'
 
 class AppointmentDetailView(LoginRequiredMixin,DetailView):
     model = Appointment

@@ -2,10 +2,13 @@
 
 {% block content %}
 <div class="inventory-entry">
-    <h2>{{ object.blood_type }}</h2>
-    <p>by {{ object.date_of_donation }}</p>
-    <p>{{ object.appointment }}</p>
-    <p>{{ object.recipient }}</p>
+    <h3>Inventory Details:</h3>
+    <br/>
+    <p><strong> Blood type: </strong>{{ object.blood_type }}</p>
+    <p><strong> Date of Donation: </strong>{{ object.date_of_donation }}</p>
+    <p><strong> Appointment Id: </strong>{{ object.appointment }}</p>
+    <p><strong> Recipient: </strong>{{ object.recipient }}</p>
+    <br/>
 </div>
 
 <p><a href="{% url 'inventory:inventory_edit' object.pk %}">Edit</a> | <a

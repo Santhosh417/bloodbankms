@@ -8,6 +8,7 @@
         <table class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
+                <th>Id</th>
                 <th>Donor</th>
                 <th>Appointment Date</th>
                 <th>Start Time</th>
@@ -20,7 +21,7 @@
             <tbody>
             {% for appointment in object_list %}
             <tr>
-
+                <td>{{ appointment.id  }}</td>
                 <td>{{ appointment.donor  }}</td>
                 <td>{{ appointment.appointment_date  }}</td>
                 <td>{{ appointment.start_time |time:"h:i A" }}</td>

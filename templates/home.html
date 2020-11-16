@@ -3,15 +3,13 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-{% if user.is_authenticated %}
+<div class="jumbotron">
+    <h1 class="display-4">Blood Bank Management System</h1>
+    <p class="lead">Donor, Recipient and Inventory Management System.</p>
+    {% if user.is_authenticated %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <strong>Sub Menu:</strong>
-                &emsp;&emsp;
-            </li>
             <li class="nav-item active">
                 <a href="{% url 'users:donor_list' %}">Donors</a>
                 &emsp;&emsp;
@@ -22,49 +20,14 @@
             </li>
             <li class="nav-item">
                 <a href="{% url 'inventory:inventory_list' %}">Inventory</a>
+                &emsp;&emsp;
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'inventory:appointment_list' %}">Appointments</a>
             </li>
         </ul>
-    </div>
-</nav>
-<h3>Appointments</h3>
-<section>
-    <div class="row">
-        <table class="table table-bordered table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Donor</th>
-                <th>Appointment Date</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Associated Staff</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for appointment in object_list %}
-            <tr>
-                <td>{{ appointment.donor }}</td>
-                <td>{{ appointment.appointment_date }}</td>
-                <td>{{ appointment.start_time |time:"h:i A" }}</td>
-                <td>{{ appointment.end_time |time:"h:i A" }}</td>
-                <td>{{ appointment.staff }}</td>
-                <td><a href="{% url 'inventory:appointment_edit' appointment.pk %}">Edit</a></td>
-                <td><a href="{% url 'inventory:appointment_delete' appointment.pk %}">Delete</a></td>
-            </tr>
-            {% endfor %}
-
-            </tbody>
-        </table>
-    </div>
-</section>
-{% endif %}
-{% if not user.is_authenticated %}
-
-<div class="jumbotron">
-    <h1 class="display-4">Blood Bank Management System</h1>
-    <p class="lead">Donor, Recipient and Inventory Management System.</p>
+    </nav>
+    {% endif %}
 </div>
-{% endif %}
 
 {% endblock content %}

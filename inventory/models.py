@@ -15,7 +15,7 @@ class Appointment(models.Model):
         verbose_name_plural = 'Appointments'
 
     def __str__(self):
-        return self.id
+        return str(self.id) + " | " +self.donor.name
 
     def get_absolute_url(self):
         return reverse('inventory:appointment_detail', args=[str(self.id)])

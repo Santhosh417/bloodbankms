@@ -1,5 +1,4 @@
-from . import views
-from django.urls import path, re_path
+from django.urls import path
 from .views import (
     InventoryListView,
     InventoryUpdateView,
@@ -16,8 +15,6 @@ from .views import (
 app_name = 'inventory'
 
 urlpatterns = [
-    # path('accounts/login/', views.loginView, name='login'),
-
     path('inventory/', InventoryListView.as_view(), name='inventory_list'),
     path('inventory/<int:pk>/edit/',
          InventoryUpdateView.as_view(), name='inventory_edit'),
