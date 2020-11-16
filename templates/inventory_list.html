@@ -10,12 +10,13 @@
         <span class="font-weight-bold">Date of Donation: {{ inventory.date_of_donation }} </span>
       </div>
       <div class="card-body">
-        <p>Donor : {{inventory.donor}}</p>
+        <p>Donor : {{inventory.appointment.donor}}</p>
         <p>Recipient: {{ inventory.recipient }}</p>
+      </div>
+      <div class="card-footer">
         <a href="{% url 'inventory:inventory_edit' inventory.pk %}">Edit</a> |
         <a href="{% url 'inventory:inventory_delete' inventory.pk %}">Delete</a>
       </div>
-      <div class="card-footer"/>
     </div>
     <br />
   {% endfor %}
